@@ -8,8 +8,23 @@ import ContactList from './contactList/ContactList';
 class App extends Component {
     state = { 
         contacts: [],
-          filter: '',
-         
+          filter: '',    
+     }
+
+     componentDidMount() {
+         const contacts = localStorage.getItem('contacts');
+         const parseContacts = JSON.parse(contacts);
+
+         if (parseContacts) {
+             this.setState({ contacts: parseContacts});
+         }
+     }
+
+     componentDidUpdate(prevState) {
+         const {contacts} = this.state;
+         if (contacts !== prevState.contacts) {
+            localStorage.setItem('contacts', JSON.stringify(contacts));
+         }
      }
 
      formHandleSubmit = ({ name, number}) => {
