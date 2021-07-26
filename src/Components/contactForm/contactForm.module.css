@@ -1,0 +1,19 @@
+.form {
+    width: 300px;
+}
+
+.label {
+    display: inline-flex;
+    flex-direction: column;
+}
+input {
+    font-size: 18px;
+    padding: 10px;
+}
+
+.button {
+    width: 200px;
+    font-size: 18px;
+    border-radius: 30px;
+    padding: 10px;
+}
